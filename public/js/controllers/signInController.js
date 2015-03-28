@@ -2,22 +2,22 @@
  * Created by M.JUNAID on 2015-03-28.
  */
 
-myApp.controller('indexController',function($scope,$http){
+myApp.controller('signInController',function($scope,$http){
 
     $scope.userData = {
         username:'',
-        email:'',
         password:''
     };
 
     $scope.submit = function(){
-        $http.post(("http://localhost:3000/indexdata"), $scope.userData)
+        $http.post(("http://localhost:3000/signInData"), $scope.userData)
             .success(function(data){
                 console.log(data);
+                alert('Successfully SignIn ')
             })
             .error(function(err){
                 console.log(err);
-
+                alert('Error SignIn In')
             });
     }
 

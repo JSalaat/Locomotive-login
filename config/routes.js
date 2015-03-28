@@ -12,8 +12,11 @@ module.exports = function routes() {
   //this.match('myapp',{ controller: 'pagesController', action: 'app' });
 
   //this.match('index', 'myapp#index');
-  this.match('signUp',{ controller: 'myapp', action: 'signup' });
 
-  this.match('indexdata',{via:'post',controller: 'myapp',action:'signupdata'})
+  this.match('signUp',{ controller: 'myapp', action: 'signup' });
+  this.match('signIn',{ controller: 'myapp', action: 'signin' });
+
+  this.match('signUpData',{via:'post',controller: 'myapp',action:'signupdata'});
+  this.match('signInData',{via:'post',controller: 'myapp',action:'signindata'});
 
 };
