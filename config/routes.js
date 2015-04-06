@@ -9,6 +9,7 @@ module.exports = function routes() {
   this.root('pages#main');
 
   this.match('test', 'pages#test');
+
   //this.match('myapp',{ controller: 'pagesController', action: 'app' });
 
   //this.match('index', 'myapp#index');

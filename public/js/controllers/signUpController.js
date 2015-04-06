@@ -12,8 +12,9 @@ myApp.controller('signUpController',function($scope,$http){
 
     $scope.submit = function(){
         $http.post(("http://localhost:3000/signUpData"), $scope.userData)
-            .success(function(data){
+            .success(function(data,res){
                 console.log(data);
+                console.log(res);
                 alert("Sign Up Complete Successfully")
             })
             .error(function(err){
@@ -21,5 +22,4 @@ myApp.controller('signUpController',function($scope,$http){
                 alert("Sign Up Error")
             });
     }
-
 });

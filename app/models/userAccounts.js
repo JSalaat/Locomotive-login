@@ -3,7 +3,7 @@
  */
 
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var q        = require('q');
 
 var userSchema = new mongoose.Schema({
     userName:String,
@@ -13,24 +13,34 @@ var userSchema = new mongoose.Schema({
 
 userSchema.method('sign_up_data', function (username, email, password, callback) {
 
-        this.userName =  username;
-        this.email = email;
-        this.pass = password;
+    var defered = q.defer();
+
+    this.userName =  username;
+    this.email = email;
+    this.pass = password;
 
     this.save(function(err,data){
-        console.log(data);
-        callback(err,data)
-    })  ;
+        if(err){
+            console.log(err);
+            defered.reject(err);
+        }else{
+            console.log(data);
+            defered.resolve(data);
+        }
+    });
+    return defered.promise;
+
 });
 
 userSchema.method('sign_in_data', function (username, password, callback) {
 
     var signInData = {userName: username, pass: password};
 
-    this.findOne(signInData,function(err,data){
+    User.find(signInData,function(err,data){
         console.log(data);
         callback(err,data)
     });
 });
 
-module.exports =mongoose.model('User', userSchema);
+User = mongoose.model('User', userSchema);
+module.exports = User;

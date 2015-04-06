@@ -16,15 +16,19 @@ myAppController.signin = function() {
 myAppController.signupdata = function() {
   var UserObj = new User();
 
+  var dataObj,errObj;
   console.log(this.req.body);
 
   var username = this.req.body.username;
   var email = this.req.body.email;
   var password = this.req.body.password;
 
-  UserObj.sign_up_data(username,email,password,function(err,data){
-    console.log(err+'------------'+data)
-  });
+  UserObj.sign_up_data(username,email,password)
+      .then(function(data){
+        this.res.send({resObj:data})
+      }, function(err){
+        this.res.send({resObj:err})
+      });
 
 };
 

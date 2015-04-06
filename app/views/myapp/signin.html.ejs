@@ -13,18 +13,22 @@
   <body ng-app="sample">
     <h3 class="text-center">Sign In Sample From the MongoDb</h3>
 
-    <form ng-controller="signInController">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Username</label>
-        <input type="text" class="form-control" id="" placeholder="Enter username" ng-model="userData.username">
-      </div>
+    <div class="container" ng-controller="signInController">
 
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" ng-model="userData.password">
-      </div>
+      <form class="form-signin" ng-submit="submit()">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputuserName" class="sr-only">Username</label>
+        <input type="text" id="inputuserName" class="form-control" placeholder="Username" required="" autofocus="" ng-model="userData.username">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" ng-model="userData.password">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+    </div>
 
-      <button type="submit" class="btn btn-default" ng-click="submit()">Submit</button>
-    </form>
   </body>
 </html>
