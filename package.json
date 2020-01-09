@@ -6,7 +6,7 @@
     "bootable": "0.2.x",
     "bootable-environment": "0.2.x",
     "connect-powered-by": "0.1.x",
-    "ejs": "0.8.x",
+    "ejs": "2.5.x",
     "express": "3.x.x",
     "locomotive": "0.4.x",
     "mongoose": "^5.8.4",
